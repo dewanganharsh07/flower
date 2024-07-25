@@ -35,3 +35,11 @@ Advanced Options
    root-user
    pinning-version
    using-different-version
+
+Run Flower Docker Compose
+-------------------------
+
+.. toctree::
+   :maxdepth: 1
+
+   tutorial-quickstart-docker-compose
