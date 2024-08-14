@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday [Her Name]</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(120deg, #ff9a9e 0%, #fad0c4 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        text-align: center;
+        max-width: 600px;
+      }
+
+      h1 {
+        color: #fff;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .gift-box {
+        width: 150px;
+        height: 150px;
+        background: #ff5e57;
+        position: relative;
+        margin: 0 auto;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .gift-box .ribbon {
+        width: 30px;
+        height: 150px;
+        background: #ffd700;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .gift-box .top-lid,
+      .gift-box .bottom-lid {
+        width: 150px;
+        height: 75px;
+        background: #ff5e57;
+        position: absolute;
+        left: 0;
+        transition: all 0.5s ease-in-out;
+        transform-origin: bottom center;
+      }
+
+      .gift-box .top-lid {
+        top: 0;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+
+      .gift-box .bottom-lid {
+        bottom: 0;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        transform-origin: top center;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      #surprise {
+        margin-top: 30px;
+        position: relative;
+      }
+
+      .stars {
+        width: 100%;
+        height: 200px;
+        background: url("images/stars.png") center/cover no-repeat;
+        margin-bottom: 20px;
+        animation: sparkle 1s ease-in-out forwards;
+      }
+
+      @keyframes sparkle {
+        0% {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .message h2 {
+        color: #fff;
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .message p {
+        color: #fff;
+        font-size: 1.2rem;
+      }
+
+      .floating-toys {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .floating-toys img {
+        width: 120px; /* Set consistent width */
+        height: 150px; /* Set consistent height */
+        object-fit: cover; /* Ensure images are fully visible within their container */
+        border-radius: 15px; /* Add some rounding to match the box */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        animation: float 5s infinite ease-in-out;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      /* Box Opening Animation */
+      .open .top-lid {
+        transform: rotateX(-120deg);
+      }
+
+      .open .bottom-lid {
+        transform: rotateX(120deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Happy Birthday [Her Name]!</h1>
+      <div id="gift-box" class="gift-box">
+        <div class="ribbon"></div>
+        <div class="top-lid"></div>
+        <div class="bottom-lid"></div>
+        <p>Tap to Open Your Surprise!</p>
+      </div>
+      <div id="surprise" class="hidden">
+        <div class="stars"></div>
+        <div class="message">
+          <h2>To the most amazing friend in the world,</h2>
+          <p>
+            May your birthday be as wonderful and beautiful as you are. You mean
+            the world to me, and I'm so grateful for your friendship. Wishing
+            you all the love, joy, and happiness today and always.
+          </p>
+          <p>Happy Birthday!</p>
+        </div>
+        <div class="floating-toys">
+          <img
+            src="https://images-cdn.ubuy.co.in/6361d4f9a9dfdf3b695dd873-rabbit-plush-toy-13-8-inch-cute-soft.jpg"
+            alt="Soft Toy 1"
+          />
+          <img
+            src="https://m.media-amazon.com/images/I/61r9ir9vveS.jpg"
+            alt="Soft Toy 2"
+          />
+          <img
+            src="https://images-cdn.ubuy.co.in/634d05f44012ef2d3f3ea2f2-cute-stuffed-rabbit-plush-soft-toys.jpg"
+            alt="Soft Toy 3"
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("gift-box")
+        .addEventListener("click", function () {
+          // Trigger the box opening animation
+          this.classList.add("open");
+
+          // Show the surprise section after a delay
+          setTimeout(function () {
+            document.getElementById("surprise").classList.remove("hidden");
+          }, 500); // Delay to sync with the box opening animation
+        });
+    </script>
+  </body>
+</html>
